@@ -26,3 +26,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
 		syntax match TrailingWhitespace "\_s\+$"
 	]]}
 );
+
+-- Always show signal column (Prevent flickering when entering and exiting insert mode)
+vim.o.signcolumn = 'yes';

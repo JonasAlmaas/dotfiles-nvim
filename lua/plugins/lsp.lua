@@ -41,6 +41,8 @@ return {
 		require('mason').setup();
 		require('mason-lspconfig').setup({
 			ensure_installed = {
+				'clangd',
+				'csharp_ls',
 				'lua_ls',
 				'tailwindcss'
 			},
@@ -48,12 +50,6 @@ return {
 				function(server_name) -- default handler (optional)
 					require('lspconfig')[server_name].setup({
 						capabilities = capabilities
-					});
-				end,
-				['lua_ls'] = function()
-					local lspconfig = require('lspconfig')
-					lspconfig.lua_ls.setup({
-						capabilities = capabilities,
 					});
 				end,
 				['tailwindcss'] = function()

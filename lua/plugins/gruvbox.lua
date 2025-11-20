@@ -5,6 +5,7 @@ return {
 		local gruvbox = require('gruvbox');
 
 		gruvbox.setup({
+			terminal_colors = true,
 			italic = {
 				strings = false,
 				emphasis = false,

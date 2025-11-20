@@ -39,8 +39,8 @@ local toggle_terminal = function()
 		state = create_floating_window({buf = state.buf});
 		if vim.bo[state.buf].buftype ~= 'terminal' then
 			vim.cmd.terminal();
-			vim.cmd('normal! i') -- Enter Terminal Job mode
 		end
+		vim.cmd('normal! i') -- Enter Terminal Job mode
 	else
 		vim.api.nvim_win_hide(state.win);
 	end

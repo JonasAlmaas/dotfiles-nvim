@@ -1,6 +1,6 @@
 local state = {
 	buf = -1,
-	win = -1,
+	winid = -1,
 };
 
 local create_floating_window = function(opts)
@@ -29,20 +29,23 @@ local create_floating_window = function(opts)
 		border = 'rounded',
 	};
 
-	local win = vim.api.nvim_open_win(buf, true, win_conf);
+	local winid = vim.api.nvim_open_win(buf, true, win_conf);
 
-	return {buf=buf, win=win};
+	vim.api.nvim_set_hl(0, 'FloatBorder', {bg='NONE'});
+	vim.wo[winid].winhighlight = 'Normal:Normal';
+
+	return {buf=buf, winid=winid};
 end
 
 local toggle_terminal = function()
-	if not vim.api.nvim_win_is_valid(state.win) then
+	if not vim.api.nvim_win_is_valid(state.winid) then
 		state = create_floating_window({buf = state.buf});
 		if vim.bo[state.buf].buftype ~= 'terminal' then
 			vim.cmd.terminal();
 		end
 		vim.cmd('normal! i') -- Enter Terminal Job mode
 	else
-		vim.api.nvim_win_hide(state.win);
+		vim.api.nvim_win_hide(state.winid);
 	end
 end
 

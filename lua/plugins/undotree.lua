@@ -1,7 +1,7 @@
 return {
 	'mbbill/undotree',
 
-	config = function() 
+	config = function()
 		-- 'diff' is not a default application on Windows
 		vim.g.undotree_DiffCommand = "FC";
 

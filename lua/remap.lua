@@ -32,7 +32,7 @@ vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- Useful keymap for editing configs
 vim.keymap.set('n', '<leader><leader>', function() vim.cmd([[so]]); end);
 
--- Only remap if an lsp is present
+-- Only remap if an LSP is present
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(e)
 		local opts = { buffer = e.buf }

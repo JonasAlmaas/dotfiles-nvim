@@ -95,7 +95,7 @@ return {
 					buftype = 'Terminal', -- 'Terminal' or 'BufTerminal' for terminal buffer vs normal buffer
 				},
 			});
-			require('dap.ext.vscode').load_launchjs('.vscode/launch.json', nil);
+			--require('dap.ext.vscode').load_launchjs('.vscode/launch.json', nil);
 		end
 	},
 

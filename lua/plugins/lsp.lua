@@ -52,9 +52,13 @@ return {
 						capabilities = capabilities
 					});
 				end,
+				['clangd'] = function()
+					require('lspconfig').clangd.setup({
+						capabilities = capabilities,
+					});
+				end,
 				['tailwindcss'] = function()
-					local lspconfig = require('lspconfig')
-					lspconfig.tailwindcss.setup({
+					require('lspconfig').tailwindcss.setup({
 						capabilities = capabilities,
 						filetypes = {'html', 'css', 'javascript',  'typescript', 'svelte'},
 					});

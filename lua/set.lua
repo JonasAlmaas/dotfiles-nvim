@@ -23,3 +23,7 @@ vim.opt.colorcolumn = "80" -- Guideline
 -- Render whitespace
 vim.o.list = true
 vim.o.listchars = 'tab:» ,lead:·,trail:·'
+
+vim.diagnostic.config({
+	virtual_text = {},
+});

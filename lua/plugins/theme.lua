@@ -16,6 +16,18 @@ return {
 		end
 	},
 	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function()
+			require('rose-pine').setup({
+				styles = {
+					bold = false,
+					italic = false,
+				}
+			});
+		end
+	},
+	{
 		'rebelot/kanagawa.nvim',
 		priority = 1000,
 		config = function()

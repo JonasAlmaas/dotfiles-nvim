@@ -23,6 +23,7 @@ return {
 			require('mason-lspconfig').setup({
 				ensure_installed = {
 					'clangd',
+					'csharp_ls',
 					'lua_ls',
 				},
 			});
@@ -31,6 +32,10 @@ return {
 				capabilities = capabilities,
 			});
 			vim.keymap.set('n', '<leader>o', function() vim.cmd(':LspClangdSwitchSourceHeader'); end);
+
+			vim.lsp.config('csharp_ls', {
+				capabilities = capabilities,
+			});
 
 			vim.diagnostic.config({
 				-- update_in_insert = true,

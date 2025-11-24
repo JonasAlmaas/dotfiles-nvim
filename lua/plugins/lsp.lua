@@ -31,7 +31,6 @@ return {
 			vim.lsp.config('clangd', {
 				capabilities = capabilities,
 			});
-			vim.keymap.set('n', '<leader>o', function() vim.cmd(':LspClangdSwitchSourceHeader'); end);
 
 			vim.lsp.config('csharp_ls', {
 				capabilities = capabilities,

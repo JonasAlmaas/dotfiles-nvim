@@ -4,4 +4,5 @@ require('lazy_init');
 
 require('floaterminal');
 
-vim.cmd('colorscheme gruvbox');
+--vim.cmd('colorscheme gruvbox');
+vim.cmd('colorscheme kanagawa-dragon');

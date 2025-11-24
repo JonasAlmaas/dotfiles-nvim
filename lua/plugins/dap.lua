@@ -30,6 +30,12 @@ return {
 			vim.keymap.set('n', '<F3>', dap.step_into, {desc = 'Debug: Step Into'});
 			vim.keymap.set('n', '<F4>', dap.step_out, {desc = 'Debug: Step Out'});
 
+			vim.keymap.set('n', '<leader>c', dap.continue, {desc = 'Debug: Continue'});
+			vim.keymap.set('n', '<leader>n', dap.step_over, {desc = 'Debug: Step Over'});
+			vim.keymap.set('n', '<leader>i', dap.step_into, {desc = 'Debug: Step Into'});
+			vim.keymap.set('n', '<leader>o', dap.step_out, {desc = 'Debug: Step Out'});
+			vim.keymap.set('n', '<leader>s', dap.stop, {desc = 'Debug: Stop'});
+
 			--vim.keymap.set('n', '<F8>', dap.continue, {desc = 'Debug: Continue'});
 			--vim.keymap.set('n', '<F10>', dap.step_over, {desc = 'Debug: Step Over'});
 			--vim.keymap.set('n', '<F11>', dap.step_into, {desc = 'Debug: Step Into'});

@@ -43,7 +43,12 @@ return {
 		priority = 1000,
 		config = function()
 			require("oasis").setup({
-				dark_style = 'Abyss'
+				dark_style = 'Abyss',
+				styles = {
+					bold = false,
+					italic = false,
+				},
+				terminal_colors = true,
 			});
 		end
 	}

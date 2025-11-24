@@ -36,5 +36,15 @@ return {
 				keywordStyle = {italic=false},
 			});
 		end
+	},
+	{
+		"uhs-robert/oasis.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("oasis").setup({
+				dark_style = 'Abyss'
+			});
+		end
 	}
 }

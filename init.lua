@@ -2,7 +2,7 @@ require('set');
 require('remap');
 require('lazy_init');
 
-require('floaterminal');
+require('floaterm');
 
 --vim.cmd('colorscheme rose-pine');
 --vim.cmd('colorscheme gruvbox');

@@ -16,7 +16,7 @@ local draw_tabline = function(winid)
 		end
 	end
 
-	s = s .. "%= <>tn next │ <>tp prev | <>tc create | <>td delete";
+	s = s .. "%= <>tn next │ <>tp prev | <>tc create | <>td delete | <>tda delete all";
 	return s;
 end
 
@@ -135,6 +135,24 @@ local delete_buf = function()
 	vim.api.nvim_buf_delete(bufid, {force=true});
 end
 
+local delete_all_bufs = function()
+	if not vim.api.nvim_win_is_valid(state.winid) or state.curr_bufix == -1 then
+		return;
+	end
+
+	local old_bufids = state.bufids;
+
+	state.bufids = {};
+	state.curr_bufix = 1;
+	state.bufids[state.curr_bufix] = new_buf();
+
+	open_curr_buf();
+
+	for _, bufid in pairs(old_bufids) do
+		vim.api.nvim_buf_delete(bufid, {force=true});
+	end
+end
+
 local next_buf = function()
 	if not vim.api.nvim_win_is_valid(state.winid) then
 		return;
@@ -163,7 +181,7 @@ end
 
 local goto_buf = function(bufix)
 	if bufix > #state.bufids then
-		for i=#state.bufids, bufix, 1 do
+		for i=#state.bufids, bufix do
 			state.bufids[i] = new_buf();
 		end
 	end
@@ -188,6 +206,7 @@ vim.api.nvim_create_user_command('FloatermPrevBuf', prev_buf, {});
 vim.keymap.set({'n', 't'}, '<leader>tt', toggle_terminal);
 vim.keymap.set({'t'}, '<leader>tc', create_new_buf, {});
 vim.keymap.set({'t'}, '<leader>td', delete_buf);
+vim.keymap.set({'t'}, '<leader>tda', delete_all_bufs);
 vim.keymap.set({'t'}, '<leader>tn', next_buf);
 vim.keymap.set({'t'}, '<leader>tp', prev_buf);
 

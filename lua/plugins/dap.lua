@@ -80,7 +80,9 @@ return {
 		},
 		config = function()
 			require('mason-nvim-dap').setup({
-				ensure_installed = {},
+				ensure_installed = {
+					'cortex-debug'
+				},
 				automatic_installation = true,
 				handlers = {
 					function(config)

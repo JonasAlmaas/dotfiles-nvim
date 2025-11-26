@@ -27,6 +27,17 @@ vim.keymap.set('x', '<leader>p', [["_dP]]);
 vim.keymap.set({'n', 'v'}, '<leader>y', [["+y]]);
 vim.keymap.set('n', '<leader>Y', [["+Y]]);
 
+-- Toggle hlsearch if it's on, otherwise just do "enter"
+vim.keymap.set("n", "<CR>", function()
+	---@diagnostic disable-next-line: undefined-field
+	if vim.v.hlsearch == 1 then
+		vim.cmd.nohl();
+		return '';
+	else
+		return vim.keycode('<CR>');
+	end
+end, { expr = true })
+
 -- Delete to void register
 vim.keymap.set({'n', 'v'}, '<leader>d', [["_d]]);
 

@@ -195,6 +195,7 @@ vim.api.nvim_create_user_command('FloatermNextBuf', next_buf, {});
 vim.api.nvim_create_user_command('FloatermPrevBuf', prev_buf, {});
 
 vim.keymap.set({'n', 't'}, '<leader>tt', toggle_terminal);
+vim.keymap.set({'t'}, '<esc>', close_terminal, {});
 vim.keymap.set({'t'}, '<leader>tc', new_buf, {});
 vim.keymap.set({'t'}, '<leader>td', delete_buf);
 vim.keymap.set({'t'}, '<leader>tda', delete_all_bufs);

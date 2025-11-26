@@ -4,20 +4,20 @@ return {
 		config = function()
 			require('nvim-treesitter.configs').setup({
 				ensure_installed = {
-					--'bash',
-					'c', --'cpp', 'c_sharp', 'css', 'csv',
-					--'dockerfile', 'doxygen',
-					--'editorconfig',
-					--'git_config', 'gitattributes', 'gitignore',
-					--'ini',
-					--'javascript', 'jsdoc', 'json', 'json5',
-					--'linkerscript', 'llvm',
-					--'nginx',
-					--'rust',
-					--'sql', 'ssh_config', 'svelte',
-					--'typescript',
-					--'xml',
-					--'yaml'
+					'bash',
+					'c', 'cpp', 'c_sharp', 'css', 'csv',
+					'dockerfile', 'doxygen',
+					'editorconfig',
+					'git_config', 'gitattributes', 'gitignore',
+					'ini',
+					'javascript', 'jsdoc', 'json', 'json5',
+					'linkerscript', 'llvm', 'lua',
+					'nginx',
+					'rust',
+					'sql', 'ssh_config', 'svelte',
+					'typescript',
+					'xml',
+					'yaml'
 				},
 				-- Install parsers synchronously (only applied to `ensure_installed`)
 				sync_install = false,

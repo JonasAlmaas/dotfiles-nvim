@@ -14,7 +14,7 @@ local draw_tabline = function()
 		end
 	end
 
-	s = s .. "%= <>tn next │ <>tp prev | <>tc create | <>td delete | <>tda delete all";
+	s = s .. "%= <>th prev │ <>tl next | <>tc create | <>td delete | <>tda delete all";
 	return s;
 end
 
@@ -198,8 +198,8 @@ vim.keymap.set({'n', 't'}, '<leader>tt', toggle_terminal);
 vim.keymap.set({'t'}, '<leader>tc', new_buf, {});
 vim.keymap.set({'t'}, '<leader>td', delete_buf);
 vim.keymap.set({'t'}, '<leader>tda', delete_all_bufs);
-vim.keymap.set({'t'}, '<leader>tn', next_buf);
-vim.keymap.set({'t'}, '<leader>tp', prev_buf);
+vim.keymap.set({'t'}, '<leader>th', prev_buf);
+vim.keymap.set({'t'}, '<leader>tl', next_buf);
 
 vim.keymap.set({'n', 't'}, '<leader>t1', function() goto_buf(1); end, {});
 vim.keymap.set({'n', 't'}, '<leader>t2', function() goto_buf(2); end, {});

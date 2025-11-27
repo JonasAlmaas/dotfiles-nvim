@@ -25,6 +25,7 @@ return {
 					'clangd',
 					'csharp_ls',
 					'lua_ls',
+					'tailwindcss',
 				},
 			});
 
@@ -34,6 +35,15 @@ return {
 
 			vim.lsp.config('csharp_ls', {
 				capabilities = capabilities,
+			});
+
+			vim.lsp.config('tailwindcss', {
+				capabilities = capabilities,
+				filetype = {
+					'html', 'css',
+					'javascript', 'typescript',
+					'svelte',
+				}
 			});
 
 			vim.diagnostic.config({

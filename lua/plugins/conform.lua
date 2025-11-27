@@ -9,6 +9,9 @@ return {
 				typescript = { "prettier" },
 				svelte = { "prettier" },
 			},
+			default_format_opts = {
+				lsp_format = "fallback",
+			},
 		});
 
 		vim.keymap.set("n", "<leader>fd", function()

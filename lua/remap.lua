@@ -45,7 +45,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]]);
 vim.keymap.set('n', 'Q', '<nop>');
 
 -- Replace hovered word
-vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]);
+--vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]);
 
 -- Useful keymap for editing configs
 --vim.keymap.set('n', '<leader><leader>', function() vim.cmd([[so]]); end);

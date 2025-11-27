@@ -27,6 +27,7 @@ return {
 					'lua_ls',
 					'tailwindcss',
 					'ts_ls',
+					'svelte',
 				},
 			});
 
@@ -41,6 +42,7 @@ return {
 				}
 			});
 			vim.lsp.config('ts_ls', { capabilities = capabilities });
+			vim.lsp.config('svelte', { capabilities = capabilities });
 
 			vim.diagnostic.config({
 				-- update_in_insert = true,

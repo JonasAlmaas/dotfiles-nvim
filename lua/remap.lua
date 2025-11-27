@@ -53,9 +53,8 @@ vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- Only remap if an LSP is present
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(e)
-		local opts = {buffer = e.buf};
+		local opts = { buffer = e.buf };
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts);
-		vim.keymap.set('n', '<leader>o', function() vim.cmd(':LspClangdSwitchSourceHeader'); end);
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts);
 		vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts);
 		vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts);
@@ -63,6 +62,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts);
 		vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts);
 		vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts);
+		vim.keymap.set('n', '<leader>o', function() vim.cmd(':LspClangdSwitchSourceHeader'); end);
+		vim.keymap.set("n", "<leader>fd", vim.lsp.buf.format, opts);
+
+		-- This is default
 		--vim.keymap.set("n", "[d", vim.lsp.diagnostic.goto_next, opts);
 		--vim.keymap.set("n", "]d", vim.lsp.diagnostic.goto_prev, opts);
 	end

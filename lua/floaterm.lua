@@ -6,7 +6,7 @@ local state = {
 
 local draw_tabline = function()
 	local s = "%#StatusLineTermNC#"
-	for i=1, #state.bufids do
+	for i = 1, #state.bufids do
 		if i == state.curr_bufix then
 			s = s .. "%#StatusLineTerm# [" .. i .. "] %#StatusLineTermNC#"
 		else
@@ -41,9 +41,9 @@ local create_floating_window = function(opts)
 
 	local winid = vim.api.nvim_open_win(bufid, true, win_conf);
 
-	vim.api.nvim_set_option_value('winbar', draw_tabline(), {win=winid});
+	vim.api.nvim_set_option_value('winbar', draw_tabline(), { win = winid });
 
-	vim.api.nvim_set_hl(0, 'FloatBorder', {bg='NONE'});
+	vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'NONE' });
 	vim.wo[winid].winhighlight = 'Normal:Normal';
 
 	return winid;
@@ -61,7 +61,7 @@ local open_terminal = function()
 
 	local bufid = state.bufids[state.curr_bufix];
 
-	state.winid = create_floating_window({bufid=bufid});
+	state.winid = create_floating_window({ bufid = bufid });
 
 	if vim.bo[bufid].buftype ~= 'terminal' then
 		vim.cmd.terminal();
@@ -87,7 +87,7 @@ local open_curr_buf = function()
 	local bufid = state.bufids[state.curr_bufix];
 
 	vim.api.nvim_win_set_buf(state.winid, bufid);
-	vim.api.nvim_set_option_value('winbar', draw_tabline(), {win=state.winid});
+	vim.api.nvim_set_option_value('winbar', draw_tabline(), { win = state.winid });
 
 	if vim.bo[bufid].buftype ~= 'terminal' then
 		vim.cmd.terminal();
@@ -122,7 +122,7 @@ local delete_buf = function()
 
 	open_curr_buf();
 
-	vim.api.nvim_buf_delete(bufid, {force=true});
+	vim.api.nvim_buf_delete(bufid, { force = true });
 end
 
 local delete_all_bufs = function()
@@ -139,7 +139,7 @@ local delete_all_bufs = function()
 	open_curr_buf();
 
 	for _, bufid in pairs(old_bufids) do
-		vim.api.nvim_buf_delete(bufid, {force=true});
+		vim.api.nvim_buf_delete(bufid, { force = true });
 	end
 end
 
@@ -171,7 +171,7 @@ end
 
 local goto_buf = function(bufix)
 	if bufix > #state.bufids then
-		for i=#state.bufids, bufix do
+		for i = #state.bufids, bufix do
 			state.bufids[i] = vim.api.nvim_create_buf(false, true);
 		end
 	end
@@ -194,16 +194,16 @@ vim.api.nvim_create_user_command('FloatermDeleteAllBufs', delete_all_bufs, {});
 vim.api.nvim_create_user_command('FloatermNextBuf', next_buf, {});
 vim.api.nvim_create_user_command('FloatermPrevBuf', prev_buf, {});
 
-vim.keymap.set({'n', 't'}, '<leader>tt', toggle_terminal);
-vim.keymap.set({'t'}, '<esc>', close_terminal, {});
-vim.keymap.set({'t'}, '<leader>tc', new_buf, {});
-vim.keymap.set({'t'}, '<leader>td', delete_buf);
-vim.keymap.set({'t'}, '<leader>tda', delete_all_bufs);
-vim.keymap.set({'t'}, '<leader>th', prev_buf);
-vim.keymap.set({'t'}, '<leader>tl', next_buf);
+vim.keymap.set({ 'n', 't' }, '<leader>tt', toggle_terminal);
+vim.keymap.set({ 't' }, '<esc>', close_terminal, {});
+vim.keymap.set({ 't' }, '<leader>tc', new_buf, {});
+vim.keymap.set({ 't' }, '<leader>td', delete_buf);
+vim.keymap.set({ 't' }, '<leader>tda', delete_all_bufs);
+vim.keymap.set({ 't' }, '<leader>th', prev_buf);
+vim.keymap.set({ 't' }, '<leader>tl', next_buf);
 
-vim.keymap.set({'n', 't'}, '<leader>t1', function() goto_buf(1); end, {});
-vim.keymap.set({'n', 't'}, '<leader>t2', function() goto_buf(2); end, {});
-vim.keymap.set({'n', 't'}, '<leader>t3', function() goto_buf(3); end, {});
-vim.keymap.set({'n', 't'}, '<leader>t4', function() goto_buf(4); end, {});
-vim.keymap.set({'n', 't'}, '<leader>t5', function() goto_buf(5); end, {});
+vim.keymap.set({ 'n', 't' }, '<leader>t1', function() goto_buf(1); end, {});
+vim.keymap.set({ 'n', 't' }, '<leader>t2', function() goto_buf(2); end, {});
+vim.keymap.set({ 'n', 't' }, '<leader>t3', function() goto_buf(3); end, {});
+vim.keymap.set({ 'n', 't' }, '<leader>t4', function() goto_buf(4); end, {});
+vim.keymap.set({ 'n', 't' }, '<leader>t5', function() goto_buf(5); end, {});

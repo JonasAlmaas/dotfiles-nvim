@@ -17,24 +17,26 @@ return {
 
 			dap.set_log_level('DEBUG');
 
-			vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, {desc = 'Debug: Toggle Breakpoint'})
-			vim.keymap.set('n', '<leader>gb', dap.run_to_cursor, {desc = 'Debug: Run to cursor'});
-			vim.keymap.set('n', '<leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, {desc = 'Debug: Set Conditional Breakpoint'});
+			vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
+			vim.keymap.set('n', '<leader>gb', dap.run_to_cursor, { desc = 'Debug: Run to cursor' });
+			vim.keymap.set('n', '<leader>B',
+				function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
+				{ desc = 'Debug: Set Conditional Breakpoint' });
 
-			vim.keymap.set('n', '<leader>?', function ()
-				require('dapui').eval(nil, {enter=true});
+			vim.keymap.set('n', '<leader>?', function()
+				require('dapui').eval(nil, { enter = true });
 			end);
 
-			vim.keymap.set('n', '<F1>', dap.continue, {desc = 'Debug: Continue'});
-			vim.keymap.set('n', '<F2>', dap.step_over, {desc = 'Debug: Step Over'});
-			vim.keymap.set('n', '<F3>', dap.step_into, {desc = 'Debug: Step Into'});
-			vim.keymap.set('n', '<F4>', dap.step_out, {desc = 'Debug: Step Out'});
+			vim.keymap.set('n', '<F1>', dap.continue, { desc = 'Debug: Continue' });
+			vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' });
+			vim.keymap.set('n', '<F3>', dap.step_into, { desc = 'Debug: Step Into' });
+			vim.keymap.set('n', '<F4>', dap.step_out, { desc = 'Debug: Step Out' });
 
-			vim.keymap.set('n', '<leader>c', dap.continue, {desc = 'Debug: Continue'});
-			vim.keymap.set('n', '<leader>n', dap.step_over, {desc = 'Debug: Step Over'});
-			vim.keymap.set('n', '<leader>i', dap.step_into, {desc = 'Debug: Step Into'});
-			vim.keymap.set('n', '<leader>o', dap.step_out, {desc = 'Debug: Step Out'});
-			vim.keymap.set('n', '<leader>s', dap.stop, {desc = 'Debug: Stop'});
+			vim.keymap.set('n', '<leader>c', dap.continue, { desc = 'Debug: Continue' });
+			vim.keymap.set('n', '<leader>n', dap.step_over, { desc = 'Debug: Step Over' });
+			vim.keymap.set('n', '<leader>i', dap.step_into, { desc = 'Debug: Step Into' });
+			vim.keymap.set('n', '<leader>o', dap.step_out, { desc = 'Debug: Step Out' });
+			vim.keymap.set('n', '<leader>s', dap.stop, { desc = 'Debug: Stop' });
 
 			--vim.keymap.set('n', '<F8>', dap.continue, {desc = 'Debug: Continue'});
 			--vim.keymap.set('n', '<F10>', dap.step_over, {desc = 'Debug: Step Over'});
@@ -55,7 +57,7 @@ return {
 			end
 
 			require('dap-cortex-debug').setup({
-				debug = false,  -- log debug messages
+				debug = false, -- log debug messages
 				-- path to cortex-debug extension, supports vim.fn.glob
 				-- by default tries to guess: mason.nvim or VSCode extensions
 				extension_path = nil,

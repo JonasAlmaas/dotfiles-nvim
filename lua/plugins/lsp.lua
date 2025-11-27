@@ -30,8 +30,8 @@ return {
 				},
 			});
 
-			vim.lsp.config('clangd', {capabilities = capabilities});
-			vim.lsp.config('csharp_ls', {capabilities = capabilities});
+			vim.lsp.config('clangd', { capabilities = capabilities });
+			vim.lsp.config('csharp_ls', { capabilities = capabilities });
 			vim.lsp.config('tailwindcss', {
 				capabilities = capabilities,
 				filetype = {
@@ -40,7 +40,7 @@ return {
 					'svelte',
 				}
 			});
-			vim.lsp.config('ts_ls', {capabilities = capabilities});
+			vim.lsp.config('ts_ls', { capabilities = capabilities });
 
 			vim.diagnostic.config({
 				-- update_in_insert = true,

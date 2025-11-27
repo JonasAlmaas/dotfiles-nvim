@@ -32,8 +32,8 @@ return {
 		priority = 1000,
 		config = function()
 			require('kanagawa').setup({
-				commentStyle = {italic=false},
-				keywordStyle = {italic=false},
+				commentStyle = { italic = false },
+				keywordStyle = { italic = false },
 			});
 		end
 	},

@@ -13,7 +13,7 @@ vim.opt.backup = false;
 vim.opt.undodir = vim.fn.expand('$HOME/.vim/undodir');
 vim.opt.undofile = true;
 
-vim.opt.scrolloff = 8; -- Always keep 8 lines of margin around cursor
+vim.opt.scrolloff = 8;      -- Always keep 8 lines of margin around cursor
 vim.opt.signcolumn = 'yes'; -- Always show signal column (Prevent flickering when entering and exiting insert mode)	
 
 vim.opt.updatetime = 50;

@@ -9,6 +9,7 @@ return {
 			'j-hui/fidget.nvim',
 		},
 		config = function()
+			local cmp = require('cmp');
 			local cmp_lsp = require('cmp_nvim_lsp');
 			local capabilities = vim.tbl_deep_extend(
 				'force',
@@ -16,7 +17,6 @@ return {
 				vim.lsp.protocol.make_client_capabilities(),
 				cmp_lsp.default_capabilities());
 
-			require('cmp').setup({});
 			require('fidget').setup({});
 
 			require('mason').setup({});
@@ -44,6 +44,24 @@ return {
 			vim.lsp.config('ts_ls', { capabilities = capabilities });
 			vim.lsp.config('svelte', { capabilities = capabilities });
 
+			
+			local cmp_select = { behavior = cmp.SelectBehavior.Select };
+
+			cmp.setup({
+				mapping = cmp.mapping.preset.insert({
+					['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+					['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+					['<C-y>'] = cmp.mapping.confirm({ select = true }),
+					["<C-Space>"] = cmp.mapping.complete(),
+				}),
+				sources = cmp.config.sources({
+						{ name = 'nvim_lsp' },
+					},
+					{
+						{ name = 'buffer' },
+					});
+			});
+
 			vim.diagnostic.config({
 				-- update_in_insert = true,
 				float = {
@@ -54,7 +72,7 @@ return {
 					header = "",
 					prefix = "",
 				},
-			})
+			});
 		end
 	},
 	{ -- Lua LSP stuff

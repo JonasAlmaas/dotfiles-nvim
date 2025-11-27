@@ -171,7 +171,7 @@ end
 
 local goto_buf = function(bufix)
 	if bufix > #state.bufids then
-		for i = #state.bufids, bufix do
+		for i = #state.bufids + 1, bufix do
 			state.bufids[i] = vim.api.nvim_create_buf(false, true);
 		end
 	end

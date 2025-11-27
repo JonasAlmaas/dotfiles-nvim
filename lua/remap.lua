@@ -63,7 +63,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts);
 		vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts);
 		vim.keymap.set('n', '<leader>o', function() vim.cmd(':LspClangdSwitchSourceHeader'); end);
-		vim.keymap.set("n", "<leader>fd", vim.lsp.buf.format, opts);
+		--vim.keymap.set("n", "<leader>fd", vim.lsp.buf.format, opts); -- Set in conform config
 
 		-- This is default
 		--vim.keymap.set("n", "[d", vim.lsp.diagnostic.goto_next, opts);

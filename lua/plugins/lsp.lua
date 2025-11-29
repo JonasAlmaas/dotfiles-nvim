@@ -25,14 +25,17 @@ return {
 					'clangd',
 					'csharp_ls',
 					'lua_ls',
+					'rust_analyzer',
+					'svelte',
 					'tailwindcss',
 					'ts_ls',
-					'svelte',
 				},
 			});
 
 			vim.lsp.config('clangd', { capabilities = capabilities });
 			vim.lsp.config('csharp_ls', { capabilities = capabilities });
+			vim.lsp.config('rust_analyzer', { capabilities = capabilities });
+			vim.lsp.config('svelte', { capabilities = capabilities });
 			vim.lsp.config('tailwindcss', {
 				capabilities = capabilities,
 				filetype = {
@@ -42,9 +45,7 @@ return {
 				}
 			});
 			vim.lsp.config('ts_ls', { capabilities = capabilities });
-			vim.lsp.config('svelte', { capabilities = capabilities });
 
-			
 			local cmp_select = { behavior = cmp.SelectBehavior.Select };
 
 			cmp.setup({
@@ -54,12 +55,9 @@ return {
 					['<C-y>'] = cmp.mapping.confirm({ select = true }),
 					["<C-Space>"] = cmp.mapping.complete(),
 				}),
-				sources = cmp.config.sources({
-						{ name = 'nvim_lsp' },
-					},
-					{
-						{ name = 'buffer' },
-					});
+				sources = cmp.config.sources(
+					{ { name = 'nvim_lsp' } },
+					{ { name = 'buffer' } }),
 			});
 
 			vim.diagnostic.config({

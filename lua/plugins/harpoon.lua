@@ -7,6 +7,7 @@ return {
 	},
 	config = function()
 		local harpoon = require("harpoon");
+		local extensions = require("harpoon.extensions");
 
 		harpoon:setup({});
 
@@ -28,6 +29,10 @@ return {
 		-- Toggle previous & next buffers stored within Harpoon list
 		vim.keymap.set("n", "<leader>hp", function() harpoon:list():prev() end);
 		vim.keymap.set("n", "<leader>hn", function() harpoon:list():next() end);
+
+		-- Extensions
+		harpoon:extend(extensions.builtins.navigate_with_number());
+		harpoon:extend(extensions.builtins.highlight_current_file());
 
 		-- Use telescope as the UI
 		--[[local conf = require("telescope.config").values;

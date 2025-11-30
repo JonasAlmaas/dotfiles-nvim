@@ -75,3 +75,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		--vim.keymap.set("n", "]d", vim.lsp.diagnostic.goto_prev, opts);
 	end
 });
+
+-- Just to avoid problems with dead key `
+vim.keymap.set('n', 'à', '`a');
+vim.keymap.set('n', 'è', '`e');
+vim.keymap.set('n', 'ì', '`i');
+vim.keymap.set('n', 'ò', '`o');
+vim.keymap.set('n', 'ù', '`u');
+
+

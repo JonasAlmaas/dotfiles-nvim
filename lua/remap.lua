@@ -4,10 +4,15 @@ vim.g.mapleader = ' ';
 vim.keymap.set('n', '<leader>e', function() vim.cmd(':Oil'); end);
 
 -- Easy window navigation
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>');
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>');
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>');
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>');
+--vim.keymap.set('n', '<C-h>', '<C-w><C-h>');
+--vim.keymap.set('n', '<C-j>', '<C-w><C-j>');
+--vim.keymap.set('n', '<C-k>', '<C-w><C-k>');
+--vim.keymap.set('n', '<C-l>', '<C-w><C-l>');
+-- Easy window movement
+--vim.keymap.set('n', '<C-H>', '<C-w><C-H>');
+--vim.keymap.set('n', '<C-J>', '<C-w><C-J>');
+--vim.keymap.set('n', '<C-K>', '<C-w><C-K>');
+--vim.keymap.set('n', '<C-L>', '<C-w><C-L>');
 
 -- Allow moving blocks of code in visual mode
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv");

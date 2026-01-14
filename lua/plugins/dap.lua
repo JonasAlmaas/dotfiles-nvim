@@ -1,5 +1,27 @@
 return {
 	{
+		'jay-babu/mason-nvim-dap.nvim',
+		dependencies = {
+			'williamboman/mason.nvim',
+			'neovim/nvim-lspconfig',
+		},
+		config = function()
+			require('mason-nvim-dap').setup({
+				ensure_installed = {
+					'cortex-debug',
+					'codelldb'
+				},
+				automatic_installation = true,
+				handlers = {
+					function(config)
+						require('mason-nvim-dap').default_setup(config)
+					end,
+				},
+			})
+		end,
+	},
+
+	{
 		'mfussenegger/nvim-dap',
 		dependencies = {
 			'jedrzejboczar/nvim-dap-cortex-debug',
@@ -7,6 +29,7 @@ return {
 			'theHamsta/nvim-dap-virtual-text',
 			'nvim-neotest/nvim-nio',
 			'williamboman/mason.nvim',
+			'jay-babu/mason-nvim-dap.nvim',
 		},
 		config = function()
 			local dap = require('dap');
@@ -56,6 +79,34 @@ return {
 				ui.close();
 			end
 
+			local mason_root = require("mason.settings").current.install_root_dir;
+
+			-- Setup codelldb adapter if installed
+			local codelldb_path = mason_root .. '/packages/codelldb/extension';
+			local codelldb_bin = codelldb_path .. "/adapter/codelldb"
+			dap.adapters.codelldb = {
+				type = "server",
+				port = "${port}",
+				executable = {
+					command = codelldb_bin,
+					args = { "--port", "${port}" },
+				}
+			}
+
+			-- Rust configuration
+			dap.configurations.rust = {
+				{
+					name = "Launch",
+					type = "codelldb",
+					request = "launch",
+					program = function()
+						return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+					end,
+					cwd = '${workspaceFolder}',
+					stopOnEntry = false,
+				},
+			}
+
 			require('dap-cortex-debug').setup({
 				debug = false, -- log debug messages
 				-- path to cortex-debug extension, supports vim.fn.glob
@@ -72,26 +123,5 @@ return {
 			});
 			--require('dap.ext.vscode').load_launchjs('.vscode/launch.json', nil);
 		end
-	},
-
-	{
-		'jay-babu/mason-nvim-dap.nvim',
-		dependencies = {
-			'williamboman/mason.nvim',
-			'neovim/nvim-lspconfig',
-		},
-		config = function()
-			require('mason-nvim-dap').setup({
-				ensure_installed = {
-					'cortex-debug'
-				},
-				automatic_installation = true,
-				handlers = {
-					function(config)
-						require('mason-nvim-dap').default_setup(config)
-					end,
-				},
-			})
-		end,
 	},
 };

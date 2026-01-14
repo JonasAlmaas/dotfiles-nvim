@@ -1,6 +1,7 @@
 return {
 	{
 		'jay-babu/mason-nvim-dap.nvim',
+		lazy = true,
 		dependencies = {
 			'williamboman/mason.nvim',
 			'neovim/nvim-lspconfig',
@@ -23,6 +24,21 @@ return {
 
 	{
 		'mfussenegger/nvim-dap',
+		keys = {
+			{ "<leader>b", mode = "n" },
+			{ "<leader>gb", mode = "n" },
+			{ "<leader>B", mode = "n" },
+			{ "<leader>?", mode = "n" },
+			{ "<F1>", mode = "n" },
+			{ "<F2>", mode = "n" },
+			{ "<F3>", mode = "n" },
+			{ "<F4>", mode = "n" },
+			{ "<leader>c", mode = "n" },
+			{ "<leader>n", mode = "n" },
+			{ "<leader>i", mode = "n" },
+			{ "<leader>o", mode = "n" },
+			{ "<leader>s", mode = "n" },
+		},
 		dependencies = {
 			'jedrzejboczar/nvim-dap-cortex-debug',
 			'rcarriga/nvim-dap-ui',

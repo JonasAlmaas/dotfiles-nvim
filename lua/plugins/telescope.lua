@@ -2,6 +2,13 @@ return {
 	'nvim-telescope/telescope.nvim',
 	tag = 'v0.2.0',
 	dependencies = { 'nvim-lua/plenary.nvim' },
+	keys = {
+		{ "<leader>ff", mode = "n" },
+		{ "<leader>fg", mode = "n" },
+		{ "<leader>fb", mode = "n" },
+		{ "<leader>vh", mode = "n" },
+	},
+	cmd = "Telescope",
 	config = function()
 		require('telescope').setup({});
 

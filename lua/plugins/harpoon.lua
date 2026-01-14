@@ -5,6 +5,20 @@ return {
 		'nvim-lua/plenary.nvim',
 		--'nvim-telescope/telescope.nvim',
 	},
+	keys = {
+		{ "<leader>a", mode = "n" },
+		{ "<leader>hh", mode = "n" },
+		{ "<leader>ha", mode = "n" },
+		{ "<leader>hs", mode = "n" },
+		{ "<leader>hd", mode = "n" },
+		{ "<leader>hf", mode = "n" },
+		{ "<leader>h1", mode = "n" },
+		{ "<leader>h2", mode = "n" },
+		{ "<leader>h3", mode = "n" },
+		{ "<leader>h4", mode = "n" },
+		{ "<leader>hp", mode = "n" },
+		{ "<leader>hn", mode = "n" },
+	},
 	config = function()
 		local harpoon = require("harpoon");
 		local extensions = require("harpoon.extensions");

@@ -1,5 +1,10 @@
 return {
 	'stevearc/conform.nvim',
+	event = { "BufWritePre" },
+	keys = {
+		{ "<leader>fd", mode = "n" },
+	},
+	cmd = "ConformInfo",
 	opts = {},
 	config = function()
 		require('conform').setup({

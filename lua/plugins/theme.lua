@@ -1,6 +1,7 @@
 return {
-	{
+	--[[{
 		'ellisonleao/gruvbox.nvim',
+		lazy = false,
 		priority = 1000,
 		config = function()
 			require('gruvbox').setup({
@@ -18,6 +19,8 @@ return {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
+		lazy = false,
+		priority = 1000,
 		config = function()
 			require('rose-pine').setup({
 				styles = {
@@ -29,6 +32,7 @@ return {
 	},
 	{
 		'rebelot/kanagawa.nvim',
+		lazy = false,
 		priority = 1000,
 		config = function()
 			require('kanagawa').setup({
@@ -36,7 +40,7 @@ return {
 				keywordStyle = { italic = false },
 			});
 		end
-	},
+	},]]
 	{
 		"uhs-robert/oasis.nvim",
 		lazy = false,

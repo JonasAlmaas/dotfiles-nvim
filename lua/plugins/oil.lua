@@ -8,9 +8,9 @@ return {
 		require('oil').setup({
 			view_options = {
 				show_hidden = true,
-				is_always_hidden = function(name, bufno)
+				--[[is_always_hidden = function(name, bufno)
 					return name == '.git';
-				end,
+				end,]]
 			}
 		});
 	end

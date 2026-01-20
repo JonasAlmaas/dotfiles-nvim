@@ -20,6 +20,10 @@ return {
 
 			require('fidget').setup({});
 
+			-- Make float borders visible
+			vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#ffffff', bg = 'NONE' });
+			vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#1a1a1a' });
+
 			require('mason').setup({});
 			require('mason-lspconfig').setup({
 				ensure_installed = {
@@ -50,6 +54,10 @@ return {
 			local cmp_select = { behavior = cmp.SelectBehavior.Select };
 
 			cmp.setup({
+				window = {
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
+				},
 				mapping = cmp.mapping.preset.insert({
 					['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 					['<C-n>'] = cmp.mapping.select_next_item(cmp_select),

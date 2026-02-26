@@ -73,6 +73,9 @@ return {
 
 			vim.diagnostic.config({
 				-- update_in_insert = true,
+				virtual_text = {
+					severity = { min = vim.diagnostic.severity.ERROR },
+				},
 				float = {
 					focusable = false,
 					style = "minimal",

@@ -4,7 +4,7 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		cmd = { "TSUpdate", "TSInstall" },
 		config = function()
-			require('nvim-treesitter.configs').setup({
+			require('nvim-treesitter.config').setup({
 				ensure_installed = {
 					'bash',
 					'c', 'cpp', 'c_sharp', 'css', 'csv',

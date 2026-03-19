@@ -2,6 +2,8 @@ vim.g.mapleader = ' ';
 
 --vim.keymap.set('n', '<leader>pv', vim.cmd.Ex);
 vim.keymap.set('n', '<leader>e', function() vim.cmd(':Oil'); end);
+vim.keymap.set('n', '<F2>', function() vim.cmd(':Oil'); end);
+vim.keymap.set('i', '<F2>', function() vim.cmd(':Oil'); end);
 
 -- Easy window navigation
 --vim.keymap.set('n', '<C-h>', '<C-w><C-h>');

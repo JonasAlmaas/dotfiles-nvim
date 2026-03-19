@@ -2,6 +2,7 @@ local state = {
 	winid = -1,
 	bufids = {},
 	curr_bufix = -1,
+	mode = '',
 };
 
 local draw_tabline = function()
@@ -50,6 +51,8 @@ local create_floating_window = function(opts)
 end
 
 local open_terminal = function()
+	state.mode = vim.fn.mode();
+
 	if vim.api.nvim_win_is_valid(state.winid) then
 		return;
 	end
@@ -72,6 +75,9 @@ end
 local close_terminal = function()
 	if vim.api.nvim_win_is_valid(state.winid) then
 		vim.api.nvim_win_hide(state.winid);
+		if state.mode == 'i' then
+			vim.api.nvim_feedkeys('i', 'n', false);
+		end
 	end
 end
 
